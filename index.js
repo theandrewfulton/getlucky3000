@@ -18,5 +18,3 @@ async function getCorporateBS () {
     corporateData = await response.json()
     return corporateData.phrase
 }
-console.log(getCorporateBS())
-console.log(getAffirmation())
