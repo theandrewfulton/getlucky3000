@@ -46,7 +46,7 @@ async function getDogPic() {
 
 
 let test_img = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rspcansw.org.au%2Fwhat-we-do%2Fadoptions%2Fdogs-and-puppies%2F&psig=AOvVaw3fTLDUiJGBwJutJInTh37F&ust=1620352875297000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLiEhoD7s_ACFQAAAAAdAAAAABAD'
-=======
+
 // entry point for affirmation url, runs through proxy to avoid CORS error
 const affirmationURL = "https://cors-anywhere.herokuapp.com/https://www.affirmations.dev/"
 const corporateBsURL = "https://corporatebs-generator.sameerkumar.website/"
