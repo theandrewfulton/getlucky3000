@@ -79,12 +79,14 @@ form {
   } */
 
 
-.container {
+
+
+#container2 {
     margin: 100px 0 100px;
     justify-content: center;
     display: block;
     flex-wrap: wrap;
-    
+    visibility: hidden;
 }
 
 html {
@@ -99,13 +101,7 @@ body {
     display: flex;
 }
 
-/* .tile {
-    height: 600px;
-    width: 450px;
-    margin-top: 100px;
-    margin-bottom: 100px;
 
-} */
 
 
 .tile {
@@ -127,16 +123,16 @@ body {
     position: relative;
     margin: 0;
     background-color: rgb(177, 198, 219);
-    height: 300px; */
+    height: auto; 
     width: 500px;
     font-family: 'Montserrat', sans-serif;
 }
 
 
 img {
-    text-align: center; */
+    text-align: center;
     justify-content: center;
-    position: absolute; */
+    position: absolute;
     display:flex;
     margin:0;
     width: auto;
@@ -145,6 +141,6 @@ img {
     margin-left: auto;
     margin-right: auto;
 
-    width: 50%; */
-    width: auto\9; ie8 */
+
+
 }

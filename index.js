@@ -11,15 +11,18 @@ const dogPic = 'https://dog.ceo/api/breeds/image/random'
 // this then calls a function called updateAffirmation and passes the affirmation data do it
 async function getAffirmation() {
         let response = await fetch(affirmationURL)
-        affirmationData = await response.json()
-        updateAffirmation(affirmationData.affirmation)
+        let affirmationData = await response.json()
+        // updateAffirmation(affirmationData.affirmation)
+        document.getElementById("affirmation").innerHTML = affirmationData.affirmation
 }
 
 // async function to fetch data from corporate bs api
-async function getCorporateBS () {
-    let response = await fetch(corporateBsURL)
-    corporateData = await response.json()
-    updateBS(corporateData.phrase)
+async function getCorporateBS() {
+        let response = await fetch(corporateBsURL)
+        let corporateData = await response.json()
+        // updateBS(corporateData.phrase)
+        // console.log(corporateData.phrase)
+        document.getElementsByClassName("occupation")[0].innerHTML = corporateData.phrase
 }
 
 
@@ -32,19 +35,24 @@ fetch(dadJokeFetch)
 
     let punchLine = document.getElementById("punchline")
     let setUp = document.getElementById("setup")
-    let jokeButton = document.getElementById("get-dad-jokes")
-    jokeButton.addEventListener('click', getJoke)
+    // let jokeButton = document.getElementById("get-dad-jokes")
+    // jokeButton.addEventListener('click', getJoke)
     
     async function getJoke() {
         let data = null
         let response = await fetch(`${dadJokeFetch}`)
         data = await response.json()
-        punchLine.innerText = data.punchline
-        setUp.innerText = data.setup
+        // punchLine.innerText = data.punchline
+        // setUp.innerText = data.setup
+
+        document.getElementById("setup").innerHTML = data.setup
+        document.getElementById("payoff").innerHTML = data.punchline
+
     }
 
 
-let doggie = document.getElementById("breed")
+let dogBreed = document.getElementById("breed")
+let doggie = document.getElementById("doggie")
 fetch(dogPic)
     .then((response) => response.json()) //returns a promise
     .then((data) => {console.log(data)}) //handles the data and runs a function
@@ -70,9 +78,11 @@ async function getDogPic() {
 
 
 // testing
-getDogPic()
-getAffirmation()
-getCorporateBS()
+// getDogPic()
+// getAffirmation()
+// getCorporateBS()
+
+
 function updateAffirmation(newAffirmation) {
 affirmation = document.getElementById("affirmation")
 affirmation.innerHTML = (newAffirmation)
@@ -103,5 +113,14 @@ subButton.addEventListener("click", function(event) {
         //let para = document.getElementById("test")
         //Uncomment and test to see if above values work
         //para.innerText = `name:${nameValue}, age:${ageValue}, occupation:${occupationValue}, breed:${breedValue} `
+
+
+    getJoke()
+    getDogPic()
+    getCorporateBS()
+    getAffirmation()
+    document.getElementById("container").style.visibility = "hidden"
+    document.getElementById("container2").style.visibility = "visible"
+    
 })
 
