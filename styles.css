@@ -71,3 +71,58 @@ form {
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     align-content: center;
 }
+
+.container {
+    margin: 100px 0 100px;
+    justify-content: center;
+    display: block;
+    flex-wrap: wrap;
+    
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+
+
+.tile {
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    background-color: lightslategray;
+    height: 500px;
+    width: 500px;
+    display:flex;
+    justify-content: center;
+}
+
+
+.text-tile {
+
+    width: 500px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+img {
+    /* text-align: center; */
+    justify-content: center;
+    /* position: absolute; */
+    display:flex;
+    margin:0;
+    width: auto;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
