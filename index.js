@@ -1,11 +1,10 @@
-
 export const returnTrue = () => true
 
 // URLs for API entry points. affirmationURL runs through proxy to avoid CORS error
 const affirmationURL = 'https://cors-anywhere.herokuapp.com/https://www.affirmations.dev/'
 const corporateBsURL = 'https://corporatebs-generator.sameerkumar.website/'
 const dadJokeFetch = 'https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes'
-const dogPic = 'https://dog.ceo/api/breeds/image/random'
+const dogPic = 'https://dog.ceo/api/breed'
 
 // async function to fetch data from affirmation api
 // this then calls a function called updateAffirmation and passes the affirmation data do it
@@ -26,7 +25,7 @@ async function getCorporateBS() {
 }
 
 
-// Dad joke
+Dad joke
 fetch(dadJokeFetch)
     .then((response) => response.json()) //returns a promise
     .then((data) => {console.log(data)}) //handles the data and runs a function
@@ -60,15 +59,6 @@ fetch(dogPic)
 
 
 
-async function getDogPic() {
-    let data = null
-    let response = await fetch(`${dogPic}`)
-    data = await response.json()
-    doggie.src = data.message
-
-}
-
-
 
 
 
@@ -77,11 +67,15 @@ async function getDogPic() {
 // let test_img = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rspcansw.org.au%2Fwhat-we-do%2Fadoptions%2Fdogs-and-puppies%2F&psig=AOvVaw3fTLDUiJGBwJutJInTh37F&ust=1620352875297000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLiEhoD7s_ACFQAAAAAdAAAAABAD'
 
 
+
+
+
+
 // testing
+
 // getDogPic()
 // getAffirmation()
 // getCorporateBS()
-
 
 function updateAffirmation(newAffirmation) {
 affirmation = document.getElementById("affirmation")
@@ -91,6 +85,7 @@ function updateBS(newBS) {
     corporateBS = document.getElementById("bs")
     corporateBS.innerHTML = (newBS)
 }
+
 
 
 let subButton = document.getElementById("submit")
@@ -123,4 +118,5 @@ subButton.addEventListener("click", function(event) {
     document.getElementById("container2").style.visibility = "visible"
     
 })
+
 
