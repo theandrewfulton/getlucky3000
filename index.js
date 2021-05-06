@@ -17,11 +17,11 @@ async function getAffirmation() {
 
 // async function to fetch data from corporate bs api
 async function getCorporateBS() {
-        let response = await fetch(corporateBsURL)
-        let corporateData = await response.json()
-        // updateBS(corporateData.phrase)
-        // console.log(corporateData.phrase)
-        document.getElementsByClassName("occupation")[0].innerHTML = corporateData.phrase
+    let response = await fetch(corporateBsURL)
+    let corporateData = await response.json()
+    // updateBS(corporateData.phrase)
+    // console.log(corporateData.phrase)
+    document.getElementsByClassName("occupation")[0].innerHTML = corporateData.phrase
 }
 
 
@@ -50,6 +50,14 @@ fetch(dadJokeFetch)
     }
 
 
+async function getDog(breed) {
+    let response = await fetch(`${dogPic}/${breed}/images/random`)
+    dogData = await response.json()
+    updateDog = dogData.message
+    // change console.log with your function to update the html content
+    console.log(updateDog)
+}
+
 let dogBreed = document.getElementById("breed")
 let doggie = document.getElementById("doggie")
 fetch(dogPic)
@@ -63,7 +71,7 @@ fetch(dogPic)
 
 
 
-
+    
 // let test_img = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rspcansw.org.au%2Fwhat-we-do%2Fadoptions%2Fdogs-and-puppies%2F&psig=AOvVaw3fTLDUiJGBwJutJInTh37F&ust=1620352875297000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLiEhoD7s_ACFQAAAAAdAAAAABAD'
 
 
@@ -85,6 +93,8 @@ function updateBS(newBS) {
     corporateBS = document.getElementById("bs")
     corporateBS.innerHTML = (newBS)
 }
+getDog("collie")
+
 
 
 
