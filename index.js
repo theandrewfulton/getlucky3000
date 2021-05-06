@@ -1,6 +1,6 @@
 export const returnTrue = () => true
 
-// entry point for affirmation url
+// entry point for affirmation url, runs through proxy to avoid CORS error
 const affirmationURL = "https://cors-anywhere.herokuapp.com/https://www.affirmations.dev/"
 // initially set data to loading. It can be something else, or an empty string.
 let data = "loading"
