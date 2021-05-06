@@ -1,30 +1,50 @@
 export const returnTrue = () => true
 
-// entry point for affirmation url, runs through proxy to avoid CORS error
-const affirmationURL = "https://cors-anywhere.herokuapp.com/https://www.affirmations.dev/"
-const corporateBsURL = "https://corporatebs-generator.sameerkumar.website/"
-// initially set data to loading. It can be something else, or an empty string.
-let affirmationData = "loading"
+// URLs for API entry points. affirmationURL runs through proxy to avoid CORS error
+const affirmationURL = 'https://cors-anywhere.herokuapp.com/https://www.affirmations.dev/'
+const corporateBsURL = 'https://corporatebs-generator.sameerkumar.website/'
+const dadJokeFetch = 'https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes'
+
+// const dogPic = 'https://dog.ceo/api/breeds/image/random'
+
 // async function to fetch data from affirmation api
-async function getAffirmation () {
+// this then calls a function called updateAffirmation and passes the affirmation data do it
+async function getAffirmation() {
         let response = await fetch(affirmationURL)
         affirmationData = await response.json()
-        return affirmationData.affirmation
+        updateAffirmation(affirmationData.affirmation)
 }
-let corporateData = "loading"
+
 // async function to fetch data from corporate bs api
 async function getCorporateBS () {
     let response = await fetch(corporateBsURL)
     corporateData = await response.json()
-    return corporateData.phrase
+    updateBS(corporateData.phrase)
 }
 
 
+// Dad joke
+fetch(dadJokeFetch)
+    .then((response) => response.json()) //returns a promise
+    .then((data) => {console.log(data)}) //handles the data and runs a function
+    .catch((error) => {console.log("error: " + error)}) //hands the errors
 
-const dogPic = 'https://dog.ceo/api/breeds/image/random'
 
-let fart
-let doggie = document.getElementById("doggie")
+    let punchLine = document.getElementById("punchline")
+    let setUp = document.getElementById("setup")
+    let jokeButton = document.getElementById("get-dad-jokes")
+    jokeButton.addEventListener('click', getJoke)
+    
+    async function getJoke() {
+        let data = null
+        let response = await fetch(`${dadJokeFetch}`)
+        data = await response.json()
+        punchLine.innerText = data.punchline
+        setUp.innerText = data.setup
+    }
+
+
+let doggie = document.getElementById("breed")
 fetch(dogPic)
     .then((response) => response.json()) //returns a promise
     .then((data) => {console.log(data)}) //handles the data and runs a function
@@ -41,27 +61,26 @@ async function getDogPic() {
 }
 
 
-// getDogPic()
 
 
 
-let test_img = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rspcansw.org.au%2Fwhat-we-do%2Fadoptions%2Fdogs-and-puppies%2F&psig=AOvVaw3fTLDUiJGBwJutJInTh37F&ust=1620352875297000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLiEhoD7s_ACFQAAAAAdAAAAABAD'
 
-// entry point for affirmation url, runs through proxy to avoid CORS error
-const affirmationURL = "https://cors-anywhere.herokuapp.com/https://www.affirmations.dev/"
-const corporateBsURL = "https://corporatebs-generator.sameerkumar.website/"
-// initially set data to loading. It can be something else, or an empty string.
-let affirmationData = "loading"
-// async function to fetch data from affirmation api
-async function getAffirmation () {
-        let response = await fetch(affirmationURL)
-        affirmationData = await response.json()
-        return affirmationData.affirmation
+// let test_img = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rspcansw.org.au%2Fwhat-we-do%2Fadoptions%2Fdogs-and-puppies%2F&psig=AOvVaw3fTLDUiJGBwJutJInTh37F&ust=1620352875297000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLiEhoD7s_ACFQAAAAAdAAAAABAD'
+
+
+
+
+
+
+// testing
+getDogPic()
+getAffirmation()
+getCorporateBS()
+function updateAffirmation(newAffirmation) {
+affirmation = document.getElementById("affirmation")
+affirmation.innerHTML = (newAffirmation)
 }
-let corporateData = "loading"
-// async function to fetch data from corporate bs api
-async function getCorporateBS () {
-    let response = await fetch(corporateBsURL)
-    corporateData = await response.json()
-    return corporateData.phrase
+function updateBS(newBS) {
+    corporateBS = document.getElementById("bs")
+    corporateBS.innerHTML = (newBS)
 }
