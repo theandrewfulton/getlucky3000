@@ -9,18 +9,20 @@ const dogPic = 'https://dog.ceo/api/breed'
 // async function to fetch data from affirmation api
 // this then calls a function called updateAffirmation and passes the affirmation data do it
 async function getAffirmation() {
-        let response = await fetch(affirmationURL)
-        let affirmationData = await response.json()
+    let response = await fetch(affirmationURL)
+    let affirmationData = await response.json()
         // updateAffirmation(affirmationData.affirmation)
-        document.getElementById("affirmation").innerHTML = affirmationData.affirmation
+    document.getElementById("affirmation").innerHTML = affirmationData.affirmation
 }
 
 // async function to fetch data from corporate bs api
 async function getCorporateBS() {
     let response = await fetch(corporateBsURL)
     let corporateData = await response.json()
+
     // updateBS(corporateData.phrase)
     // console.log(corporateData.phrase)
+
     document.getElementsByClassName("occupation")[0].innerHTML = corporateData.phrase
 }
 
@@ -28,26 +30,26 @@ async function getCorporateBS() {
 // Dad joke
 fetch(dadJokeFetch)
     .then((response) => response.json()) //returns a promise
-    .then((data) => {console.log(data)}) //handles the data and runs a function
-    .catch((error) => {console.log("error: " + error)}) //hands the errors
+    .then((data) => { console.log(data) }) //handles the data and runs a function
+    .catch((error) => { console.log("error: " + error) }) //hands the errors
 
 
-    let punchLine = document.getElementById("punchline")
-    let setUp = document.getElementById("setup")
+let punchLine = document.getElementById("punchline")
+let setUp = document.getElementById("setup")
     // let jokeButton = document.getElementById("get-dad-jokes")
     // jokeButton.addEventListener('click', getJoke)
-    
-    async function getJoke() {
-        let data = null
-        let response = await fetch(`${dadJokeFetch}`)
-        data = await response.json()
+
+async function getJoke() {
+    let data = null
+    let response = await fetch(`${dadJokeFetch}`)
+    data = await response.json()
         // punchLine.innerText = data.punchline
         // setUp.innerText = data.setup
 
-        document.getElementById("setup").innerHTML = data.setup
-        document.getElementById("payoff").innerHTML = data.punchline
+    document.getElementById("setup").innerHTML = data.setup
+    document.getElementById("payoff").innerHTML = data.punchline
 
-    }
+}
 
     let dogBreed = document.getElementById("breed")
 let doggie = document.getElementById("doggie")
@@ -73,9 +75,10 @@ async function getDog(breed) {
 // testing
 
 function updateAffirmation(newAffirmation) {
-affirmation = document.getElementById("affirmation")
-affirmation.innerHTML = (newAffirmation)
+    affirmation = document.getElementById("affirmation")
+    affirmation.innerHTML = (newAffirmation)
 }
+
 function updateBS(newBS) {
     corporateBS = document.getElementById("bs")
     corporateBS.innerHTML = (newBS)
@@ -87,11 +90,19 @@ getDog("collie")
 
 let subButton = document.getElementById("submit")
 
-
+starting
 let nameTag = document.getElementById("name")
 let ageTag = document.getElementById("age")
 let occupationTag = document.getElementById("occupation")
 let breedTag = document.getElementById("breed")
+
+let profileName = document.getElementById("profilename")
+let profileAge = document.getElementById("profileage")
+let profileBreed = document.getElementById("profilebreed")
+let dadJoke = document.getElementById("dadjoke")
+let jobName = document.getElementById("job")
+
+
 
 
 
@@ -114,7 +125,11 @@ subButton.addEventListener("click", function(event) {
     document.getElementById("container").style.visibility = "hidden"
     document.getElementById("container").style.height = "0"
     document.getElementById("container2").style.visibility = "visible"
-    
+    profileName.innerHTML = `${nameValue}'s Profile:`
+    profileAge.innerHTML = `Age : ${ageValue}`
+    profileBreed.innerHTML = `Favourite Dog Breed : ${breedValue}`
+    dadJoke.innerHTML = `Dad Joke Of The Day :`
+    jobName.innerHTML = `Occupation : ${occupationValue}`
+
+
 })
-
-
