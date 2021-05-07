@@ -25,7 +25,7 @@ async function getCorporateBS() {
 }
 
 
-Dad joke
+// Dad joke
 fetch(dadJokeFetch)
     .then((response) => response.json()) //returns a promise
     .then((data) => {console.log(data)}) //handles the data and runs a function
@@ -58,7 +58,13 @@ fetch(dogPic)
     .catch((error) => {console.log("error: " + error)}) 
 
 
+async function getDogPic() {
+    let data = null
+    let response = await fetch(`${dogPic}`)
+    data = await response.json()
+    doggie.src = data.message
 
+}
 
 
 
