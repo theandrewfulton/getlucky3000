@@ -25,7 +25,7 @@ async function getCorporateBS() {
 }
 
 
-Dad joke
+// Dad joke
 fetch(dadJokeFetch)
     .then((response) => response.json()) //returns a promise
     .then((data) => {console.log(data)}) //handles the data and runs a function
@@ -49,29 +49,22 @@ fetch(dadJokeFetch)
 
     }
 
+    let dogBreed = document.getElementById("breed")
+let doggie = document.getElementById("doggie")
 
 async function getDog(breed) {
     let response = await fetch(`${dogPic}/${breed}/images/random`)
-    dogData = await response.json()
-    updateDog = dogData.message
+    let dogData = await response.json()
+    let updateDog = dogData.message
     // change console.log with your function to update the html content
     console.log(updateDog)
 }
 
-let dogBreed = document.getElementById("breed")
-let doggie = document.getElementById("doggie")
-fetch(dogPic)
-    .then((response) => response.json()) //returns a promise
-    .then((data) => {console.log(data)}) //handles the data and runs a function
-    .catch((error) => {console.log("error: " + error)}) 
 
 
 
 
 
-
-
-    
 // let test_img = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rspcansw.org.au%2Fwhat-we-do%2Fadoptions%2Fdogs-and-puppies%2F&psig=AOvVaw3fTLDUiJGBwJutJInTh37F&ust=1620352875297000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLiEhoD7s_ACFQAAAAAdAAAAABAD'
 
 
@@ -80,10 +73,6 @@ fetch(dogPic)
 
 
 // testing
-
-// getDogPic()
-// getAffirmation()
-// getCorporateBS()
 
 function updateAffirmation(newAffirmation) {
 affirmation = document.getElementById("affirmation")
