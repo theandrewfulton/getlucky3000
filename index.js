@@ -121,6 +121,7 @@ subButton.addEventListener("click", function(event) {
     getCorporateBS()
     getAffirmation()
     document.getElementById("container").style.visibility = "hidden"
+    document.getElementById("container").style.height = "0"
     document.getElementById("container2").style.visibility = "visible"
     
 })
