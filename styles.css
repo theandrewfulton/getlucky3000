@@ -7,9 +7,8 @@
 }
 
 .intro1 {
-      font-size: 25px;
-  }
-
+    font-size: 25px;
+}
 
 #title {
     display: flex;
@@ -27,21 +26,22 @@
 }
 
 form {
-    position: fixed;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%);
     width: 100%;
     max-width: 550px;
-    background:  #413b40;
+    background: #413b40;
     color: white;
     font-weight: 700;
     padding: 30px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-#submit{
+#submit {
+    position: relative;
     background: #39b7dd;
     text-align: center;
     padding: 5px;
@@ -55,22 +55,24 @@ form {
     align-items: center;
 }
 
-#greeting{
+#greeting {
     position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%);
     width: 100%;
     max-width: 550px;
-    background:  #1997d1;
+    background: #1997d1;
     color: white;
     font-size: 30px;
     font-weight: 700;
     padding: 30px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     align-content: center;
 }
+
+
 /* .image {
     height: 200px;
     background-position: center center;
@@ -78,8 +80,15 @@ form {
     background-size: cover;
   } */
 
+#master {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-
+#container2 {
+    margin: 0%;
+}
 
 #container2 {
     margin: 100px 0 100px;
@@ -101,9 +110,6 @@ body {
     display: flex;
 }
 
-
-
-
 .tile {
     overflow: hidden;
     position: relative;
@@ -111,36 +117,29 @@ body {
     background-color: lightslategray;
     height: 500px;
     width: 500px;
-    display:flex;
+    display: flex;
     justify-content: center;
 }
 
-
 .text-tile {
-
-
     overflow: hidden;
     position: relative;
     margin: 0;
     background-color: rgb(177, 198, 219);
-    height: auto; 
+    height: auto;
     width: 500px;
     font-family: 'Montserrat', sans-serif;
 }
-
 
 img {
     text-align: center;
     justify-content: center;
     position: absolute;
-    display:flex;
-    margin:0;
+    display: flex;
+    margin: 0;
     width: auto;
     height: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-
-
-
 }

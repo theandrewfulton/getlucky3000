@@ -57,9 +57,10 @@ async function getDog(breed) {
     let dogData = await response.json()
     let updateDog = dogData.message
     // change console.log with your function to update the html content
-    console.log(updateDog)
+    doggie.src = updateDog
 }
 
+}
 
 
 
@@ -114,6 +115,7 @@ subButton.addEventListener("click", function(event) {
     getCorporateBS()
     getAffirmation()
     document.getElementById("container").style.visibility = "hidden"
+    document.getElementById("container").style.height = "0"
     document.getElementById("container2").style.visibility = "visible"
     
 })
