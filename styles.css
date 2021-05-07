@@ -84,14 +84,25 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    height: 100%;
 }
+
+
+#container {
+    background-image: url("assets/scott-broome-43pN701XMjs-unsplash.jpg");
+    width: 100%;
+    height: 100%;
+}
+
 
 #container2 {
     margin: 0%;
 }
 
 #container2 {
-    margin: 100px 0 100px;
+    height: 0%;
+    /* margin: 100px 0 100px; */
     justify-content: center;
     display: block;
     flex-wrap: wrap;
@@ -115,8 +126,10 @@ body {
     position: relative;
     margin: 0;
     background-color: lightslategray;
-    height: 500px;
-    width: 500px;
+    height: 0;
+    width: 0;
+    /* height: 500px;
+    width: 500px; */
     display: flex;
     justify-content: center;
 }
@@ -126,8 +139,10 @@ body {
     position: relative;
     margin: 0;
     background-color: rgb(177, 198, 219);
-    height: auto;
-    width: 500px;
+    height: 0;
+    width: 0;
+    /* height: auto;
+    width: 500px; */
     font-family: 'Montserrat', sans-serif;
 }
 

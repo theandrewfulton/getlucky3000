@@ -4,7 +4,7 @@ export const returnTrue = () => true
 const affirmationURL = 'https://cors-anywhere.herokuapp.com/https://www.affirmations.dev/'
 const corporateBsURL = 'https://corporatebs-generator.sameerkumar.website/'
 const dadJokeFetch = 'https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes'
-const dogPic = 'https://dog.ceo/api/breed'
+const dogPic = 'https://dog.ceo/api/breeds/image/random'
 
 // async function to fetch data from affirmation api
 // this then calls a function called updateAffirmation and passes the affirmation data do it
@@ -51,25 +51,24 @@ async function getJoke() {
 
 }
 
+
+
+
     let dogBreed = document.getElementById("breed")
-let doggie = document.getElementById("doggie")
-
-async function getDog(breed) {
-    let response = await fetch(`${dogPic}/${breed}/images/random`)
-    let dogData = await response.json()
-    let updateDog = dogData.message
-    // change console.log with your function to update the html content
-    doggie.src = updateDog
-}
-
-
-
-async function getDogPic() {
-    let data = null
-    let response = await fetch(`${dogPic}`)
-    data = await response.json()
-    doggie.src = data.message
-}
+    let doggie = document.getElementById("doggie")
+    fetch(dogPic)
+        .then((response) => response.json()) //returns a promise
+        .then((data) => {console.log(data)}) //handles the data and runs a function
+        .catch((error) => {console.log("error: " + error)}) 
+    
+    
+    async function getDogPic() {
+        let data = null
+        let response = await fetch(`${dogPic}`)
+        data = await response.json()
+        doggie.src = data.message
+    
+    }
 
 // let test_img = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rspcansw.org.au%2Fwhat-we-do%2Fadoptions%2Fdogs-and-puppies%2F&psig=AOvVaw3fTLDUiJGBwJutJInTh37F&ust=1620352875297000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLiEhoD7s_ACFQAAAAAdAAAAABAD'
 
@@ -80,16 +79,19 @@ async function getDogPic() {
 
 // testing
 
-function updateAffirmation(newAffirmation) {
-    affirmation = document.getElementById("affirmation")
-    affirmation.innerHTML = (newAffirmation)
-}
 
-function updateBS(newBS) {
-    corporateBS = document.getElementById("bs")
-    corporateBS.innerHTML = (newBS)
-}
+// function updateAffirmation(newAffirmation) {
+// affirmation = document.getElementById("affirmation")
+// affirmation.innerHTML = (newAffirmation)
+// }
+// function updateBS(newBS) {
+//     corporateBS = document.getElementById("bs")
+//     corporateBS.innerHTML = (newBS)
+// }
+
 // getDog("collie")
+
+
 
 
 
@@ -131,11 +133,28 @@ subButton.addEventListener("click", function(event) {
     document.getElementById("container").style.visibility = "hidden"
     document.getElementById("container").style.height = "0"
     document.getElementById("container2").style.visibility = "visible"
+
+
+    let i
+    let tiles = document.getElementsByClassName("tile")
+    for (i = 0; i < tiles.length; i++) {
+        tiles[i].style.height = "500px"
+        tiles[i].style.width = "500px"
+    }
+
+    let text_tiles = document.getElementsByClassName("text-tile")
+    for (i = 0; i < tiles.length; i++) {
+        text_tiles[i].style.height = "auto"
+        text_tiles[i].style.width = "500px"
+    }
+
+
     profileName.innerHTML = `${nameValue}'s Profile:`
     profileAge.innerHTML = `Age : ${ageValue}`
     profileBreed.innerHTML = `Favourite Dog Breed : ${breedValue}`
     dadJoke.innerHTML = `Dad Joke Of The Day :`
     jobName.innerHTML = `Occupation : ${occupationValue}`
+
 
 
 })
