@@ -120,7 +120,20 @@ subButton.addEventListener("click", function(event) {
     document.getElementById("container").style.visibility = "hidden"
     document.getElementById("container").style.height = "0"
     document.getElementById("container2").style.visibility = "visible"
-    
+
+    let i
+    let tiles = document.getElementsByClassName("tile")
+    for (i = 0; i < tiles.length; i++) {
+        tiles[i].style.height = "500px"
+        tiles[i].style.width = "500px"
+    }
+
+    let text_tiles = document.getElementsByClassName("text-tile")
+    for (i = 0; i < tiles.length; i++) {
+        text_tiles[i].style.height = "auto"
+        text_tiles[i].style.width = "500px"
+    }
+
 })
 
 
