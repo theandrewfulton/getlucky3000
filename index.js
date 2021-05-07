@@ -96,7 +96,7 @@ function updateBS(newBS) {
 
 let subButton = document.getElementById("submit")
 
-starting
+
 let nameTag = document.getElementById("name")
 let ageTag = document.getElementById("age")
 let occupationTag = document.getElementById("occupation")
