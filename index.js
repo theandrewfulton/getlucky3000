@@ -60,9 +60,6 @@ async function getDog(breed) {
     doggie.src = updateDog
 }
 
-}
-
-
 
 
 
