@@ -17,11 +17,11 @@ async function getAffirmation() {
 
 // async function to fetch data from corporate bs api
 async function getCorporateBS() {
-        let response = await fetch(corporateBsURL)
-        let corporateData = await response.json()
-        // updateBS(corporateData.phrase)
-        // console.log(corporateData.phrase)
-        document.getElementsByClassName("occupation")[0].innerHTML = corporateData.phrase
+    let response = await fetch(corporateBsURL)
+    let corporateData = await response.json()
+    // updateBS(corporateData.phrase)
+    // console.log(corporateData.phrase)
+    document.getElementsByClassName("occupation")[0].innerHTML = corporateData.phrase
 }
 
 
@@ -49,20 +49,16 @@ fetch(dadJokeFetch)
 
     }
 
-
-let dogBreed = document.getElementById("breed")
+    let dogBreed = document.getElementById("breed")
 let doggie = document.getElementById("doggie")
-fetch(dogPic)
-    .then((response) => response.json()) //returns a promise
-    .then((data) => {console.log(data)}) //handles the data and runs a function
-    .catch((error) => {console.log("error: " + error)}) 
 
-
-async function getDogPic() {
-    let data = null
-    let response = await fetch(`${dogPic}`)
-    data = await response.json()
-    doggie.src = data.message
+async function getDog(breed) {
+    let response = await fetch(`${dogPic}/${breed}/images/random`)
+    let dogData = await response.json()
+    let updateDog = dogData.message
+    // change console.log with your function to update the html content
+    doggie.src = updateDog
+}
 
 }
 
@@ -79,10 +75,6 @@ async function getDogPic() {
 
 // testing
 
-// getDogPic()
-// getAffirmation()
-// getCorporateBS()
-
 function updateAffirmation(newAffirmation) {
 affirmation = document.getElementById("affirmation")
 affirmation.innerHTML = (newAffirmation)
@@ -91,6 +83,8 @@ function updateBS(newBS) {
     corporateBS = document.getElementById("bs")
     corporateBS.innerHTML = (newBS)
 }
+getDog("collie")
+
 
 
 
